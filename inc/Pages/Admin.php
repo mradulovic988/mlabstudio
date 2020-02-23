@@ -58,7 +58,7 @@ class Admin extends BaseController
                 'menu_title'    => 'Taxonomies',
                 'capability'    => 'manage_options',
                 'menu_slug'     => 'marko_taxonomies',
-                'callback'      => array($this->callbacks, 'adminTaxonomies'),
+                'callback'      => array($this->callbacks, 'adminTaxonomy'),
             ),
 
             array(
@@ -67,7 +67,7 @@ class Admin extends BaseController
                 'menu_title'    => 'Widgets',
                 'capability'    => 'manage_options',
                 'menu_slug'     => 'marko_widgets',
-                'callback'      => array($this->callbacks, 'adminWidgets'),
+                'callback'      => array($this->callbacks, 'adminWidget'),
             ),
         );
     }
