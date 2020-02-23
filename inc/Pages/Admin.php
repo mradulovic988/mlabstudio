@@ -49,7 +49,7 @@ class Admin extends BaseController
                 'menu_title'    => 'CPT',
                 'capability'    => 'manage_options',
                 'menu_slug'     => 'marko_cpt',
-                'callback'      => function() { echo '<h1>CPT Manager</h1>'; }
+                'callback'      => array($this->callbacks, 'adminCpt'),
             ),
 
             array(
@@ -58,7 +58,7 @@ class Admin extends BaseController
                 'menu_title'    => 'Taxonomies',
                 'capability'    => 'manage_options',
                 'menu_slug'     => 'marko_taxonomies',
-                'callback'      => function() { echo '<h1>Taxonomies Manager</h1>'; }
+                'callback'      => array($this->callbacks, 'adminTaxonomies'),
             ),
 
             array(
@@ -67,7 +67,7 @@ class Admin extends BaseController
                 'menu_title'    => 'Widgets',
                 'capability'    => 'manage_options',
                 'menu_slug'     => 'marko_widgets',
-                'callback'      => function() { echo '<h1>Widgets Manager</h1>'; }
+                'callback'      => array($this->callbacks, 'adminWidgets'),
             ),
         );
     }
