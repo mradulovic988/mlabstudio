@@ -50,7 +50,7 @@ gulp.task( 'browser-sync', function() {
 		// 	cert: '/Users/mlabstudio/.valet/Certificates/test.dev.crt'
 		// },
 		// injectChanges: true,
-		open: false
+		// open: false
 	});
 });
 

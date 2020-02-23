@@ -28,25 +28,25 @@ class AdminCallbacks extends BaseController
 		return require_once( "$this->plugin_path/templates/widget.php" );
 	}
 
-	public function mlabstudioOptionsGroup( $input )
-	{
-		return $input;
-	}
-
-	public function mlabstudioAdminSection()
-	{
-		echo 'Check this beautiful section!';
-	}
+//	public function mlabstudioOptionsGroup( $input )
+//	{
+//		return $input;
+//	}
+//
+//	public function mlabstudioAdminSection()
+//	{
+//		echo 'Personal Information Area.';
+//	}
 
 	public function mlabstudioTextExample()
 	{
 		$value = esc_attr( get_option( 'text_example' ) );
-		echo '<input type="text" class="regular-text" name="text_example" value="' . $value . '" placeholder="Write Something Here!">';
+		echo '<input type="text" class="regular-text" name="text_example" value="' . $value . '" placeholder="Add your First Name">';
 	}
 
 	public function mlabstudioFirstName()
 	{
 		$value = esc_attr( get_option( 'first_name' ) );
-		echo '<input type="text" class="regular-text" name="first_name" value="' . $value . '" placeholder="Write your First Name">';
+		echo '<input type="text" class="regular-text" name="first_name" value="' . $value . '" placeholder="Add your Last Name">';
 	}
 }

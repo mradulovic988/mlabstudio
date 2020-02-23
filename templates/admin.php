@@ -13,7 +13,7 @@
 
 			<form method="post" action="options.php">
 				<?php 
-					settings_fields( 'mlabstudio_options_group' );
+					settings_fields( 'mlabstudio_plugin_settings' );
 					do_settings_sections( 'mlabstudio_plugin' );
 					submit_button();
 				?>
