@@ -1,1 +1,1 @@
-<h1>Custom Post Type</h1>
+<h1>CPT Manager</h1>
