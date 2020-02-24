@@ -5,8 +5,8 @@
 /*
 Plugin Name: M LabStudio
 Plugin URI: https://mlab-studio.com
-Description: Custom plugin.
-Version: 1.0.1
+Description: Custom plugin
+Version: 1.0.0
 Author: Marko Radulovic
 Author URI: https://mlab-studio.com
 License: GPLv2 or later

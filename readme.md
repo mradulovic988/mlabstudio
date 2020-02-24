@@ -1,6 +1,6 @@
-# Plugin 101 Series
+# M LabStudio Custom Plugin
 
-Full list of sections and features we will build during the series of Tutorials
+Full list of sections and featuresto build
 
 * Modular Administration Area
 * CPT Manager
