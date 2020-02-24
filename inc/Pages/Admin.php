@@ -49,7 +49,7 @@ class Admin extends BaseController
 				'menu_slug' => 'mlabstudio_plugin',
 				'callback' => array( $this->callbacks, 'adminDashboard' ), 
 				'icon_url' => 'dashicons-store', 
-				'position' => 110
+				'position' => 1
 			)
 		);
 	}
