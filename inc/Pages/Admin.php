@@ -84,61 +84,21 @@ class Admin extends BaseController
 		);
 	}
 
-	public function setSettings()
-	{
-		$args = array(
-			array(
+	public function setSettings() {
+	    $args = array();
+
+        foreach ($this->managers as $key => $value) {
+            $args[] = array(
 				'option_group' => 'mlabstudio_plugin_settings',
-				'option_name' => 'cpt_manager',
+				'option_name' => $key,
 				'callback' => array( $this->callbacks, 'checkboxSanitize' )
-			),
-			array(
-				'option_group' => 'mlabstudio_plugin_settings',
-				'option_name' => 'taxonomy_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-			),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'media_widget',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'gallery_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'testimonial_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'template_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'login_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'membership_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            ),
-            array(
-                'option_group' => 'mlabstudio_plugin_settings',
-                'option_name' => 'chat_manager',
-                'callback' => array( $this->callbacks, 'checkboxSanitize' )
-            )
-		);
+			);
+	    }
 
 		$this->settings->setSettings( $args );
 	}
 
-	public function setSections()
-	{
+	public function setSections() {
 		$args = array(
 			array(
 				'id' => 'mlabstudio_admin_index',
@@ -151,109 +111,22 @@ class Admin extends BaseController
 		$this->settings->setSections( $args );
 	}
 
-	public function setFields()
-	{
-		$args = array(
-			array(
-				'id' => 'cpt_manager',
-				'title' => 'Activate CPT Manager',
-				'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-				'page' => 'mlabstudio_plugin',
-				'section' => 'mlabstudio_admin_index',
-				'args' => array(
-					'label_for' => 'cpt_manager',
-                    'class'     => 'ui-toggle'
-				)
-			),
-            array(
-                'id' => 'taxonomy_manager',
-                'title' => 'Activate Taxonomy Manager',
+	public function setFields() {
+        $args = array();
+
+        foreach ($this->managers as $key => $value) {
+            $args[] = array(
+                'id' => $key,
+                'title' => $value,
                 'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
                 'page' => 'mlabstudio_plugin',
                 'section' => 'mlabstudio_admin_index',
                 'args' => array(
-                    'label_for' => 'taxonomy_manager',
+                    'label_for' => $key,
                     'class'     => 'ui-toggle'
                 )
-            ),
-            array(
-                'id' => 'media_widget',
-                'title' => 'Activate Media Widget',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'media_widget',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'gallery_manager',
-                'title' => 'Activate Gallery Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'gallery_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'testimonial_manager',
-                'title' => 'Activate Testimonial Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'testimonial_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'template_manager',
-                'title' => 'Activate Templates Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'template_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'login_manager',
-                'title' => 'Activate Ajax Login/Signup Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'login_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'membership_manager',
-                'title' => 'Activate Membership Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'membership_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-            array(
-                'id' => 'chat_manager',
-                'title' => 'Activate Chat Manager',
-                'callback' => array( $this->callbacks_mngr, 'checkboxField' ),
-                'page' => 'mlabstudio_plugin',
-                'section' => 'mlabstudio_admin_index',
-                'args' => array(
-                    'label_for' => 'chat_manager',
-                    'class'     => 'ui-toggle'
-                )
-            ),
-		);
+            );
+        }
 
 		$this->settings->setFields( $args );
 	}
