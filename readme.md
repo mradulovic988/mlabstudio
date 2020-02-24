@@ -1,6 +1,6 @@
 # M LabStudio Custom Plugin
 
-Full list of sections and featuresto build
+Full list of sections and features to build
 
 * Modular Administration Area
 * CPT Manager
