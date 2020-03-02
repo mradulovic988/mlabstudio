@@ -85,15 +85,21 @@ class Admin extends BaseController
 	}
 
 	public function setSettings() {
-	    $args = array();
+	    $args = array(
+            array(
+                'option_group' => 'mlabstudio_plugin_settings',
+                'option_name' => 'mlabstudio_plugin',
+                'callback' => array( $this->callbacks, 'checkboxSanitize' )
+            )
+        );
 
-        foreach ($this->managers as $key => $value) {
-            $args[] = array(
-				'option_group' => 'mlabstudio_plugin_settings',
-				'option_name' => $key,
-				'callback' => array( $this->callbacks, 'checkboxSanitize' )
-			);
-	    }
+//        foreach ($this->managers as $key => $value) {
+//            $args[] = array(
+//				'option_group' => 'mlabstudio_plugin_settings',
+//				'option_name' => $key,
+//				'callback' => array( $this->callbacks, 'checkboxSanitize' )
+//			);
+//	    }
 
 		$this->settings->setSettings( $args );
 	}
@@ -111,10 +117,11 @@ class Admin extends BaseController
 		$this->settings->setSections( $args );
 	}
 
-	public function setFields() {
+    public function setFields()
+    {
         $args = array();
 
-        foreach ($this->managers as $key => $value) {
+        foreach ( $this->managers as $key => $value ) {
             $args[] = array(
                 'id' => $key,
                 'title' => $value,
@@ -122,12 +129,13 @@ class Admin extends BaseController
                 'page' => 'mlabstudio_plugin',
                 'section' => 'mlabstudio_admin_index',
                 'args' => array(
+                    'option_name' => 'mlabstudio_plugin',
                     'label_for' => $key,
-                    'class'     => 'ui-toggle'
+                    'class' => 'ui-toggle'
                 )
             );
         }
 
-		$this->settings->setFields( $args );
-	}
+        $this->settings->setFields( $args );
+    }
 }
